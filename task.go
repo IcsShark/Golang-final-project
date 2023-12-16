@@ -87,7 +87,7 @@ func deleteTask(ctx context.Context, ID int) error {
 	if err != nil {
 		return err
 	}
-	rows, err := DB.Query("select id from tasks order by position")
+	rows, err := DB.Query("select id, title, completed from tasks order by position")
 	if err != nil {
 		return err
 	}
