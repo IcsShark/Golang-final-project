@@ -1,6 +1,7 @@
 package main
 
 import (
+	"html/template"
 	"log"
 	"net/http"
 
@@ -9,6 +10,15 @@ import (
 )
 
 func main() {
+	err := openDB()
+	if err != nil {
+		log.Panic(err)
+	}
+	defer closeDB()
+	err = setupDB()
+	if err != nil {
+		log.Panic(err)
+	}
 	r := chi.NewRouter()
 	r.Use(middleware,logger)
 	r.Get("/", func(w http.ResponseWirter, _ *http.Request){
