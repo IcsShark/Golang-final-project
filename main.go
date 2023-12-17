@@ -27,6 +27,9 @@ func main() {
 	r.Handle("/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 	r.Get("/", handleGetTasks)
 	r.Post("/tasks", handleCreateTask)
-	r.Put("/tasks/{id}/toogle", handleToggleTask)
+	r.Put("/tasks/{id}/toggle", handleToggleTask)
+	r.Delete("/tasks/{id}", handleDeleteTask)
+	r.Get("/tasks/{id}/edit", handleEditTask)
+	r.Put("/tasks/{id}", handleUpdateTask)
 	http.ListenAndServe("localhost:3000", r)
 }
