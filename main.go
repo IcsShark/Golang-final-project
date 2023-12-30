@@ -30,6 +30,6 @@ func main() {
 	r.Put("/tasks/{id}/toggle", handleToggleTask)
 	r.Delete("/tasks/{id}", handleDeleteTask)
 	r.Get("/tasks/{id}/edit", handleEditTask)
-	r.Put("/tasks/{id}", handleUpdateTask)
+	r.Put("/tasks/{id}/update", handleUpdateTask)
 	http.ListenAndServe("localhost:3000", r)
 }

@@ -41,7 +41,7 @@
       </button>
       {{ if .Editing }}
         <form 
-          hx-get="/tasks/{{.Item.ID}}"
+          hx-put="/tasks/{{.Item.ID}}/update"
           hx-target="#task-{{.Item.ID}}"
           hx-swap="outerHTML"
           class="flex items-center justify-between flex-1"
